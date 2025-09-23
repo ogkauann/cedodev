@@ -1948,4 +1948,41 @@ html {
   100% { left: 100%; }
 }
 
+/* ===== CORREÇÕES FINAIS DO TEMA CLARO ===== */
+[data-theme="light"] {
+  /* Forçar cores mais escuras para melhor contraste */
+  --text: #0f172a !important;
+  --text-secondary: #374151 !important;
+  --muted: #6b7280 !important;
+}
+
+/* Garantir que todos os textos sejam legíveis no tema claro */
+[data-theme="light"] .lead,
+[data-theme="light"] .hero .lead,
+[data-theme="light"] p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .greeting {
+  color: var(--brand) !important;
+}
+
+[data-theme="light"] .title,
+[data-theme="light"] h1, 
+[data-theme="light"] h2, 
+[data-theme="light"] h3 {
+  color: var(--text) !important;
+}
+
+[data-theme="light"] .card .subtitle,
+[data-theme="light"] .card p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .status,
+[data-theme="light"] .skills-list span,
+[data-theme="light"] .timeline-content p {
+  color: var(--text-secondary) !important;
+}
+
 

@@ -5,15 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CedoDev | Portfólio</title>
     <meta name="description" content="Landing page de CV para desenvolvedor: skills, projetos e jornada.">
+    
+    <!-- SEO Avançado -->
+    <meta name="keywords" content="desenvolvedor, frontend, backend, javascript, react, node, portfolio, web developer">
+    <meta name="author" content="Kauan Macedo">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Portuguese">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://ogkauann.github.io/cedodev">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ogkauann.github.io/cedodev">
     <meta property="og:title" content="CedoDev | Portfólio">
     <meta property="og:description" content="Portfólio do Kauan Macedo — Projetos, Skills e Jornada.">
-    <meta property="og:type" content="website">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/145023030?v=4">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="CedoDev">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ogkauann.github.io/cedodev">
     <meta name="twitter:title" content="CedoDev | Portfólio">
     <meta name="twitter:description" content="Portfólio do Kauan Macedo — Projetos, Skills e Jornada.">
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/145023030?v=4">
+    <meta name="twitter:creator" content="@ogkauann">
+    
+    <!-- Performance -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <link rel="preconnect" href="https://api.github.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="CedoDev">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="msapplication-config" content="none">
+    
+    <!-- Preload recursos críticos -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Kanit:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -23,6 +63,34 @@
 <body>
     <!-- Barra de progresso de scroll -->
     <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Loading global -->
+    <div class="global-loading" id="globalLoading">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Carregando portfólio...</p>
+        </div>
+    </div>
+    
+    <!-- Script para esconder loading imediatamente -->
+    <script>
+        // Esconder loading assim que o script executar
+        setTimeout(function() {
+            const loading = document.getElementById('globalLoading');
+            if (loading) {
+                loading.style.display = 'none';
+                console.log('✅ Loading escondido!');
+            }
+        }, 0);
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const loading = document.getElementById('globalLoading');
+            if (loading) {
+                loading.style.display = 'none';
+                console.log('✅ Loading escondido no DOMContentLoaded!');
+            }
+        });
+    </script>
     
     <header class="site-header" id="top">
         <div class="container header-inner">
@@ -35,6 +103,7 @@
                     <li><a href="#projects">Projetos</a></li>
                     <li><a href="#journey">Jornada</a></li>
                     <li><a href="#contact">Contato</a></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="bx bx-moon"></i></button></li>
                     <li><a class="btn btn-primary" href="#" id="downloadCV">Download CV</a></li>
                 </ul>
             </nav>
@@ -72,7 +141,12 @@
                 </div>
                 <aside class="card profile" aria-label="Cartão de perfil">
                     <div class="avatar" aria-hidden="true">
-                        <img src="https://avatars.githubusercontent.com/u/145023030?v=4" alt="Avatar de perfil" loading="lazy"> 
+                        <img src="https://avatars.githubusercontent.com/u/145023030?v=4" 
+                             alt="Avatar de perfil" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="120" 
+                             height="120"> 
                     </div>
                     <ul class="tags">
                     </ul>
@@ -149,10 +223,25 @@
         <section id="projects" class="section" aria-labelledby="projects-title">
             <div class="container">
                 <h2 id="projects-title" class="section-title">Projetos em Destaque</h2>
+                
+                <!-- Filtros de projetos -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="backend">Backend</button>
+                </div>
+                
                 <div class="projects" id="projects-list" data-github-username="ogkauann">
                     <!-- GitHub: principais repositórios -->
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1200&auto=format&fit=crop" alt="Comunidade Beta" loading="lazy">
+                    <article class="project-card" data-category="javascript frontend">
+                        <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=400&auto=format&fit=crop" 
+                             alt="Comunidade Beta" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="400" 
+                             height="200">
                         <div class="project-body">
                             <h3>Comunidade Beta</h3>
                             <p>Protótipo de app de comunidade com autenticação e rotas.</p>
@@ -162,8 +251,13 @@
                             </div>
                         </div>
                     </article>
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Extrator 1.2" loading="lazy">
+                    <article class="project-card" data-category="python backend">
+                        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=400&auto=format&fit=crop" 
+                             alt="Extrator 1.2" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="400" 
+                             height="200">
                         <div class="project-body">
                             <h3>Extrator 1.2</h3>
                             <p>Ferramenta para extrair informações estruturadas de documentos.</p>
@@ -173,8 +267,13 @@
                             </div>
                         </div>
                     </article>
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=1200&auto=format&fit=crop" alt="App API" loading="lazy">
+                    <article class="project-card" data-category="javascript backend">
+                        <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=400&auto=format&fit=crop" 
+                             alt="App API" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="400" 
+                             height="200">
                         <div class="project-body">
                             <h3>App API</h3>
                             <p>Ideia de app com rotas e perfis, consumo de API REST.</p>
@@ -184,8 +283,13 @@
                             </div>
                         </div>
                     </article>
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Extraction" loading="lazy">
+                    <article class="project-card" data-category="python backend">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=400&auto=format&fit=crop" 
+                             alt="Extraction" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="400" 
+                             height="200">
                         <div class="project-body">
                             <h3>Extraction</h3>
                             <p>Scripts de extração e automação de dados em Python.</p>
@@ -195,8 +299,13 @@
                             </div>
                         </div>
                     </article>
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1200&auto=format&fit=crop" alt="Tasks Trabalho" loading="lazy">
+                    <article class="project-card" data-category="javascript frontend">
+                        <img src="https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=400&auto=format&fit=crop" 
+                             alt="Tasks Trabalho" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="400" 
+                             height="200">
                         <div class="project-body">
                             <h3>Tasks Trabalho</h3>
                             <p>Trabalho acadêmico com HTML, CSS, JS e PHP integrando páginas.</p>
@@ -265,10 +374,16 @@
         <section id="contact" class="section" aria-labelledby="contact-title">
             <div class="container">
                 <h2 id="contact-title" class="section-title">Contato</h2>
-                <form class="contact" name="contact" autocomplete="on">
+                <form class="contact" 
+                      action="https://formspree.io/f/xpzgvjbo" 
+                      method="POST" 
+                      name="contact" 
+                      autocomplete="on"
+                      id="contactForm">
+                    <div class="form-status" id="formStatus"></div>
                     <label>
                         <span>Nome:</span>
-                        <input type="text" name="name" required>
+                        <input type="text" name="name" required minlength="2" maxlength="50">
                     </label>
                     <label>
                         <span>Email:</span>
@@ -276,9 +391,19 @@
                     </label>
                     <label class="full">
                         <span>Mensagem:</span>
-                        <textarea name="message" rows="4" required></textarea>
+                        <textarea name="message" rows="4" required minlength="10" maxlength="500"></textarea>
                     </label>
-                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-primary" type="submit" id="submitBtn">
+                        <span class="btn-text">Enviar</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="bx bx-loader-alt bx-spin"></i> Enviando...
+                        </span>
+                    </button>
+                    
+                    <!-- Campos ocultos para Formspree -->
+                    <input type="hidden" name="_subject" value="Nova mensagem do portfólio">
+                    <input type="hidden" name="_next" value="https://ogkauann.github.io/cedodev/#contact">
+                    <input type="hidden" name="_captcha" value="false">
                 </form>
             </div>
         </section>
@@ -289,6 +414,48 @@
             <p>© <span id="year"></span> Kauan Macedo — </i> em Fortaleza</p>
         </div>
     </footer>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kauan Macedo",
+      "alternateName": "CedoDev",
+      "url": "https://ogkauann.github.io/cedodev",
+      "image": "https://avatars.githubusercontent.com/u/145023030?v=4",
+      "jobTitle": "Desenvolvedor Full Stack",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "SEPLAG"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fortaleza",
+        "addressRegion": "CE",
+        "addressCountry": "BR"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Estácio VIACORP"
+      },
+      "knowsAbout": [
+        "JavaScript",
+        "TypeScript", 
+        "React",
+        "Node.js",
+        "Python",
+        "HTML",
+        "CSS",
+        "Git"
+      ],
+      "sameAs": [
+        "https://github.com/ogkauann",
+        "https://www.linkedin.com/in/kauan-macedo-363ba631b",
+        "https://instagram.com/og.kauann"
+      ]
+    }
+    </script>
 
     <script src="script.js"></script>
 </body>

@@ -57,6 +57,30 @@
   --ring: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
+/* Tema claro */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-secondary: #f8fafc;
+  --elev: #ffffff;
+  --elev-hover: #f1f5f9;
+  --muted: #64748b;
+  --text: #0f172a;
+  --text-secondary: #334155;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] body {
+  background: 
+    radial-gradient(1200px 800px at 10% -10%, rgba(59, 130, 246, 0.05), transparent),
+    radial-gradient(1000px 600px at 110% -20%, rgba(139, 92, 246, 0.03), transparent),
+    radial-gradient(800px 400px at 50% 100%, rgba(16, 185, 129, 0.02), transparent),
+    var(--bg);
+}
+
 /* Reset e base */
 * { 
   box-sizing: border-box; 
@@ -232,6 +256,33 @@ body {
   color: var(--brand);
   background: rgba(59, 130, 246, 0.1);
   box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+/* Botão de tema */
+.theme-toggle {
+  background: var(--elev);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: 18px;
+}
+
+.theme-toggle:hover {
+  background: var(--elev-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:focus {
+  outline: none;
+  box-shadow: var(--ring);
 }
 
 /* Botões modernos */
@@ -780,6 +831,40 @@ body {
   color: var(--brand-3);
 }
 
+/* Filtros de projetos */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  background: var(--elev);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.filter-btn:hover {
+  background: var(--elev-hover);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: var(--gradient-primary);
+  border-color: var(--brand);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
 /* Projetos modernos */
 .projects { 
   display: grid; 
@@ -1095,6 +1180,56 @@ input:focus, textarea:focus {
 
 input::placeholder, textarea::placeholder {
   color: var(--muted);
+}
+
+/* Status do formulário */
+.form-status {
+  grid-column: 1 / -1;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  display: none;
+  font-weight: 500;
+}
+
+.form-status.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--accent);
+  display: block;
+}
+
+.form-status.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+  display: block;
+}
+
+/* Estados do botão */
+.btn-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Tema claro - formulário */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: rgba(248, 250, 252, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--text);
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] textarea:focus {
+  background: rgba(248, 250, 252, 1);
+  border-color: var(--brand);
 }
 
 textarea {
@@ -1481,6 +1616,224 @@ html {
     --text: #f8fafc;
     --text-secondary: #e2e8f0;
   }
+}
+
+/* Loading global */
+.global-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  display: none !important; /* Esconder por padrão */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+}
+
+.global-loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  text-align: center;
+  color: var(--text);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(59, 130, 246, 0.1);
+  border-top: 3px solid var(--brand);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Skeletons melhorados */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--elev) 25%,
+    var(--elev-hover) 50%,
+    var(--elev) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+  border-radius: var(--radius-xl);
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: var(--elev-hover);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  height: 60px;
+  background: var(--elev-hover);
+  border-radius: var(--radius);
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Loading states para botões */
+.btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+  position: relative;
+}
+
+.btn.loading span {
+  opacity: 0;
+}
+
+.btn.loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Indicadores de estado do formulário */
+.form-status {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  display: none;
+}
+
+.form-status.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: rgb(34, 197, 94);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-status.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: rgb(239, 68, 68);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.form-status.loading {
+  background: rgba(59, 130, 246, 0.1);
+  color: rgb(59, 130, 246);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Animações para filtros de projeto */
+.filter-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-transition.fade-out {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+}
+
+.filter-transition.fade-in {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Melhorias de performance */
+.card, .project-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Otimizações para animações */
+@media (prefers-reduced-motion: no-preference) {
+  .card, .project-card {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+  
+  .card:hover, .project-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Estados de loading para projetos */
+.projects-loading {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-skeleton {
+  background: var(--elev);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-skeleton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: skeleton-slide 2s infinite;
+}
+
+@keyframes skeleton-slide {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 

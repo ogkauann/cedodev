@@ -114,7 +114,7 @@ body {
   width: min(1280px, 92%); 
   margin-inline: auto; 
   padding-inline: 24px; 
-  padding-left: max(24px, 100px); /* Garantir espaço para barra social */
+  padding-left: max(24px, env(safe-area-inset-left, 100px)); /* Garantir espaço para barra social */
 }
 
 .section { 
@@ -1134,13 +1134,22 @@ body {
   * { animation: none !important; transition: none !important; }
 }
 
-/* Formulário de contato moderno */
+/* Formulário de contato moderno - CORRIGIDO */
 .contact { 
   display: grid; 
   grid-template-columns: repeat(2, 1fr); 
   gap: 24px; 
   max-width: 600px;
   margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
+  }
 }
 
 .contact label { 
@@ -1169,6 +1178,14 @@ input, textarea {
   font-size: 16px;
   transition: all var(--transition);
   width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: rgba(248, 250, 252, 0.8);
+  border-color: rgba(100, 116, 139, 0.2);
 }
 
 input:focus, textarea:focus { 
@@ -1176,6 +1193,11 @@ input:focus, textarea:focus {
   box-shadow: var(--ring); 
   border-color: var(--brand);
   background: rgba(26, 31, 46, 0.8);
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] textarea:focus {
+  background: rgba(248, 250, 252, 0.95);
 }
 
 input::placeholder, textarea::placeholder {
@@ -1497,6 +1519,31 @@ textarea {
   padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 24px); 
 }
 
+/* Correções de responsividade para mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 24px;
+    width: 95%;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+    max-width: 300px;
+  }
+  
+  .hero .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .hero .actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
 /* Scroll progress bar moderna */
 .scroll-progress { 
   position: fixed; 
@@ -1618,7 +1665,7 @@ html {
   }
 }
 
-/* Loading global */
+/* Loading global - CORRIGIDO */
 .global-loading {
   position: fixed;
   top: 0;

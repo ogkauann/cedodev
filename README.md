@@ -104,8 +104,8 @@ Contribuições são sempre bem-vindas! Para contribuir:
 
 **Kauan Macedo** - CedoDev
 
-- GitHub: [@seu-usuario](https://github.com/ogkauann)
-- LinkedIn: [Seu LinkedIn](https://linkedin.com/in/kauan-macedo-363ba631b/)
+- GitHub: [@ogkauann](https://github.com/ogkauann)
+- LinkedIn: [kauan-macedo](https://linkedin.com/in/kauan-macedo-363ba631b/)
 - Email: comercial.ogkauann@gmail.com
 
 ---

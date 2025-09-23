@@ -21,6 +21,8 @@ Este é um portfólio web responsivo desenvolvido para apresentar as habilidades
   - Informações de contato
 - **Animações Suaves**: Transições e efeitos visuais
 - **SEO Otimizado**: Meta tags e estrutura semântica
+- **Deploy Automático**: CI/CD integrado com Azure Static Web Apps
+- **Preview de PRs**: Ambientes de teste para pull requests
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -29,6 +31,8 @@ Este é um portfólio web responsivo desenvolvido para apresentar as habilidades
 - **JavaScript**: Interatividade e funcionalidades dinâmicas
 - **Google Fonts**: Tipografia (Inter e Kanit)
 - **BoxIcons**: Ícones vetoriais
+- **Azure Static Web Apps**: Hospedagem e CI/CD
+- **GitHub Actions**: Pipeline de deploy automático
 
 ## 📱 Responsividade
 
@@ -40,14 +44,16 @@ O projeto foi desenvolvido com abordagem mobile-first, garantindo uma experiênc
 
 ## 🚀 Como Executar
 
+### Executar Localmente
+
 1. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/cedodev-portfolio.git
+git clone https://github.com/ogkauann/cedodev.git
 ```
 
 2. Navegue até o diretório:
 ```bash
-cd cedodev-portfolio
+cd cedodev
 ```
 
 3. Abra o arquivo `index.html` em seu navegador ou use um servidor local:
@@ -59,10 +65,55 @@ python -m http.server 8000
 npx live-server
 ```
 
+### Deploy no Azure Static Web Apps
+
+Este projeto está configurado para deploy automático no Azure Static Web Apps através do GitHub Actions.
+
+**Pré-requisitos:**
+- Conta no [Azure](https://azure.microsoft.com/)
+- Repositório conectado ao GitHub
+
+**Passos para configurar:**
+
+1. **Criar Static Web App no Azure:**
+   ```bash
+   # Instalar Azure CLI
+   winget install Microsoft.AzureCLI
+   
+   # Login no Azure
+   az login
+   
+   # Criar resource group
+   az group create --name rg-cedodev --location "East US"
+   
+   # Criar Static Web App
+   az staticwebapp create \
+     --name cedodev-portfolio \
+     --resource-group rg-cedodev \
+     --source https://github.com/ogkauann/cedodev \
+     --location "East US" \
+     --branch main \
+     --app-location "/" \
+     --output-location ""
+   ```
+
+2. **Configurar Secret no GitHub:**
+   - Vá em: Repositório → Settings → Secrets and variables → Actions
+   - Adicione: `AZURE_STATIC_WEB_APPS_API_TOKEN`
+   - Valor: Token obtido no portal do Azure
+
+3. **Deploy Automático:**
+   - Cada push na branch `main` fará deploy automático
+   - Pull requests criam ambientes de preview
+   - URL será fornecida após o primeiro deploy
+
 ## 📁 Estrutura do Projeto
 
 ```
-cedodev-portfolio/
+cedodev/
+├── .github/
+│   └── workflows/
+│       └── azure-static-web-apps-ci-cd.yml  # CI/CD pipeline
 ├── index.html          # Página principal
 ├── styles.css          # Estilos CSS
 ├── script.js           # Funcionalidades JavaScript

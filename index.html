@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CedoDev | Portfólio</title>
+    <meta name="description" content="Landing page de CV para desenvolvedor: skills, projetos e jornada.">
+    <meta property="og:title" content="CedoDev | Portfólio">
+    <meta property="og:description" content="Portfólio do Kauan Macedo — Projetos, Skills e Jornada.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/145023030?v=4">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CedoDev | Portfólio">
+    <meta name="twitter:description" content="Portfólio do Kauan Macedo — Projetos, Skills e Jornada.">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/145023030?v=4">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Kanit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de progresso de scroll -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a class="brand" href="#top">DEV</a>
+            <nav class="nav" aria-label="Principal">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i class="bx bx-menu"></i></button>
+                <ul id="menu" class="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#journey">Jornada</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <li><a class="btn btn-primary" href="#" id="downloadCV">Download CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <nav class="social-bar" aria-label="Redes sociais">
+            <ul>
+                <li><a href="https://github.com/ogkauann" target="_blank" rel="noopener" aria-label="GitHub"><i class="bx bxl-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/kauan-macedo-363ba631b" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a></li>
+                <li><a href="https://instagram.com/og.kauann" target="_blank" rel="noopener" aria-label="Instagram"><i class="bx bxl-instagram"></i></a></li>
+            </ul>
+        </nav>
+        <section id="home" class="section hero" aria-labelledby="hero-title">
+            <div class="container grid-2">
+                <div class="hero-content">
+                    <p class="greeting">OLÁ, EU SOU</p>
+                    <h1 id="hero-title" class="title">
+                        <span class="name-first">Kauan</span>
+                        <span class="name-last">Macedo</span>
+                    </h1>
+                    <p class="lead">Eu crio produtos digitais resilientes, performáticos e seguros. Unindo um design atraente do frontend, a robustez do backend e a automação</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Frontend</span>
+                        <span class="skill-tag">Backend</span>
+                        <span class="skill-tag">Mobile</span>
+                        <span class="skill-tag">Desktop</span>
+                    </div>
+                    <div class="actions">
+                        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-ghost">Vamos Conversar</a>
+                        <a href="https://github.com/ogkauann" target="_blank" rel="noopener" class="github-link">Veja meu GitHub</a>
+                    </div>
+                </div>
+                <aside class="card profile" aria-label="Cartão de perfil">
+                    <div class="avatar" aria-hidden="true">
+                        <img src="https://avatars.githubusercontent.com/u/145023030?v=4" alt="Avatar de perfil" loading="lazy"> 
+                    </div>
+                    <ul class="tags">
+                    </ul>
+                    <div class="status-card" aria-label="Atualmente">
+                        <small class="eyebrow">ATUALMENTE</small>
+                        <h3 class="status-title">Criando Experiências impactantes</h3>
+                        <ul class="status-list">
+                            <li>Melhorando performance e acessibilidade</li>
+                            <li>Desenhando arquiteturas escaláveis</li>
+                            <li>Prototipando experiências de alta qualidade</li>
+                        </ul>
+                        <div class="status-metrics">
+                            <div class="metric"><strong>4+</strong><span>ANOS</span></div>
+                            <div class="metric"><strong>5+</strong><span>PROJETOS</span></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="connecting-line" aria-hidden="true">
+                <svg viewBox="0 0 800 200" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#22d3ee"/>
+                            <stop offset="100%" stop-color="#5aa1ff"/>
+                        </linearGradient>
+                        <filter id="line-glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <path class="line-path" d="M20 150 Q 150 100, 300 120 Q 450 140, 600 100 Q 700 80, 750 120" 
+                          fill="none" 
+                          stroke="url(#line-grad)" 
+                          stroke-width="2" 
+                          stroke-linecap="round"
+                          stroke-dasharray="8 4"
+                          filter="url(#line-glow)"/>
+                </svg>
+            </div>
+            <div class="hero-blobs" aria-hidden="true"></div>
+            
+            <!-- Partículas flutuantes -->
+            <div class="floating-particles" aria-hidden="true">
+                <div class="particle" style="left: 10%; top: 20%;"></div>
+                <div class="particle" style="left: 20%; top: 80%;"></div>
+                <div class="particle" style="left: 80%; top: 10%;"></div>
+                <div class="particle" style="left: 70%; top: 60%;"></div>
+                <div class="particle" style="left: 30%; top: 40%;"></div>
+                <div class="particle" style="left: 90%; top: 30%;"></div>
+                <div class="particle" style="left: 60%; top: 90%;"></div>
+                <div class="particle" style="left: 15%; top: 50%;"></div>
+            </div>
+        </section>
+
+        <section id="skills" class="section" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 id="skills-title" class="section-title">Skills</h2>
+                <ul class="skills">
+                    <li title="HTML"><i class="bx bxl-html5"></i><span>HTML</span></li>
+                    <li title="CSS"><i class="bx bxl-css3"></i><span>CSS</span></li>
+                    <li title="JavaScript"><i class="bx bxl-javascript"></i><span>JavaScript</span></li>
+                    <li title="TypeScript"><i class="bx bxl-typescript"></i><span>TypeScript</span></li>
+                    <li title="React"><i class="bx bxl-react"></i><span>React</span></li>
+                    <li title="Node"><i class="bx bxl-nodejs"></i><span>Node</span></li>
+                    <li title="Git/GitHub"><i class="bx bxl-git"></i><span>Git</span></li>
+                    <li title="Python"><i class="bx bxl-python"></i><span>Python</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects" class="section" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 id="projects-title" class="section-title">Projetos em Destaque</h2>
+                <div class="projects" id="projects-list" data-github-username="ogkauann">
+                    <!-- GitHub: principais repositórios -->
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1200&auto=format&fit=crop" alt="Comunidade Beta" loading="lazy">
+                        <div class="project-body">
+                            <h3>Comunidade Beta</h3>
+                            <p>Protótipo de app de comunidade com autenticação e rotas.</p>
+                            <div class="chips"><span>JavaScript</span><span>SPA</span></div>
+                            <div class="links">
+                                <a href="https://github.com/ogkauann/comunidade-beta" target="_blank" rel="noopener"><i class="bx bx-code-alt"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Extrator 1.2" loading="lazy">
+                        <div class="project-body">
+                            <h3>Extrator 1.2</h3>
+                            <p>Ferramenta para extrair informações estruturadas de documentos.</p>
+                            <div class="chips"><span>Python</span><span>Parsing</span></div>
+                            <div class="links">
+                                <a href="https://github.com/ogkauann/extrator-1.2" target="_blank" rel="noopener"><i class="bx bx-code-alt"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=1200&auto=format&fit=crop" alt="App API" loading="lazy">
+                        <div class="project-body">
+                            <h3>App API</h3>
+                            <p>Ideia de app com rotas e perfis, consumo de API REST.</p>
+                            <div class="chips"><span>JavaScript</span><span>REST</span></div>
+                            <div class="links">
+                                <a href="https://github.com/ogkauann/app-api" target="_blank" rel="noopener"><i class="bx bx-code-alt"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Extraction" loading="lazy">
+                        <div class="project-body">
+                            <h3>Extraction</h3>
+                            <p>Scripts de extração e automação de dados em Python.</p>
+                            <div class="chips"><span>Python</span><span>CLI</span></div>
+                            <div class="links">
+                                <a href="https://github.com/ogkauann/extraction" target="_blank" rel="noopener"><i class="bx bx-code-alt"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1200&auto=format&fit=crop" alt="Tasks Trabalho" loading="lazy">
+                        <div class="project-body">
+                            <h3>Tasks Trabalho</h3>
+                            <p>Trabalho acadêmico com HTML, CSS, JS e PHP integrando páginas.</p>
+                            <div class="chips"><span>HTML</span><span>CSS</span><span>JS</span><span>PHP</span></div>
+                            <div class="links">
+                                <a href="https://github.com/ogkauann/tasks-trabalho" target="_blank" rel="noopener"><i class="bx bx-code-alt"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="container" style="margin-top: 12px;">
+                    <a class="btn btn-ghost" href="https://github.com/ogkauann" target="_blank" rel="noopener"><i class="bx bxl-github"></i> Ver todos no GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="section" aria-labelledby="journey-title">
+            <div class="container">
+                <h2 id="journey-title" class="section-title">Jornada</h2>
+                <div class="timeline">
+                    <div class="timeline-item left reveal">
+                        <div class="card">
+                            <h3>Programador Pleno - SEPLAG</h3>
+                            <p>Desenvolvimento de Portais para o Governo do Ceará, utilizando HTML, CSS, Wordpress e outras tecnologias.</p>
+                            <ul class="tags"><li>HTML</li><li>CSS</li><li>Wordpress</li><li>APIs</li></ul>
+                            <small>Fev 2025 — Atual</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item right reveal">
+                        <div class="card">
+                            <h3>Assistente de Cobrança - Grupo Advanced</h3>
+                            <p>Realização de cobranças de clientes, utilizando sistema interno da empresa, e realizando manutenção no site da empresa.</p>
+                            <ul class="tags"><li>Comunicação</li><li>Desenvolvimento Pessoal</li><li>Atividades de integração de equipe</li></ul>
+                            <small>Nov 2023 — Jul 2024</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item left reveal">
+                        <div class="card">
+                            <h3>Estácio — CC</h3>
+                            <p>Atualmente, estou cursando Ciencias da Computação na Estácio VIACORP</p>
+                            <ul class="tags"><li>Java</li><li>Python</li><li>JS</li><li>SQL</li></ul>
+                            <small>Ago 2023 — atual</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item right reveal">
+                        <div class="card">
+                            <h3>Estágiario - CRC</h3>
+                            <p>Realização de cobranças de clientes, utilizando sistema interno da empresa.</p>
+                            <ul class="tags"><li>Telemarketing</li><li>Análise de dados</li><li>Negociação</li><li>Atendimento ao cliente</li></ul>
+                            <small>Jun 2022 — Jun 2023</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item left reveal">
+                        <div class="card">
+                            <h3>Ensino Médio - EEMTI Jenny Gomes</h3>
+                            <p>Estudei no Periodo Integral </p>
+                            <ul class="tags"><li>Aluno</li></ul>
+                            <small>Jan 2019 — Dez 2021</small>
+                        </div>
+                    </div>
+                    <div class="timeline-divider" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title">Contato</h2>
+                <form class="contact" name="contact" autocomplete="on">
+                    <label>
+                        <span>Nome:</span>
+                        <input type="text" name="name" required>
+                    </label>
+                    <label>
+                        <span>Email:</span>
+                        <input type="email" name="email" required>
+                    </label>
+                    <label class="full">
+                        <span>Mensagem:</span>
+                        <textarea name="message" rows="4" required></textarea>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Kauan Macedo — </i> em Fortaleza</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

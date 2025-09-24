@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CedoDev | Portfólio</title>
-    <meta name="description" content="Landing page de CV para desenvolvedor: skills, projetos e jornada.">
+    <title>CedoDev | Portfólio de Kauan Macedo</title>
+    <meta name="description" content="CedoDev — Portfólio de Kauan Macedo: Projetos, Skills e Jornada no desenvolvimento full stack.">
     
     <!-- SEO Avançado -->
     <meta name="keywords" content="desenvolvedor, frontend, backend, javascript, react, node, portfolio, web developer">
@@ -12,25 +12,30 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="Portuguese">
     <meta name="revisit-after" content="7 days">
-    <link rel="canonical" href="https://ogkauann.github.io/cedodev">
+    <link rel="canonical" href="https://cedodev.me/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ogkauann.github.io/cedodev">
-    <meta property="og:title" content="CedoDev | Portfólio">
-    <meta property="og:description" content="Portfólio do Kauan Macedo — Projetos, Skills e Jornada.">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/145023030?v=4">
+    <meta property="og:url" content="https://cedodev.me/">
+    <meta property="og:title" content="CedoDev | Portfólio de Kauan Macedo">
+    <meta property="og:description" content="Projetos, Skills e Jornada de Kauan Macedo — Desenvolvimento full stack com foco em performance e acessibilidade.">
+    <meta property="og:image" content="https://cedodev.me/social-banner.png?v=1">
+    <meta property="og:image:secure_url" content="https://cedodev.me/social-banner.png?v=1">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="CedoDev Portfólio — Projetos, Skills e Jornada de Kauan Macedo">
     <meta property="og:site_name" content="CedoDev">
     <meta property="og:locale" content="pt_BR">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://ogkauann.github.io/cedodev">
-    <meta name="twitter:title" content="CedoDev | Portfólio">
-    <meta name="twitter:description" content="Portfólio do Kauan Macedo — Projetos, Skills e Jornada.">
-    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/145023030?v=4">
+    <meta name="twitter:url" content="https://cedodev.me/">
+    <meta name="twitter:title" content="CedoDev | Portfólio de Kauan Macedo">
+    <meta name="twitter:description" content="Projetos, Skills e Jornada de Kauan Macedo — Desenvolvimento full stack.">
+    <meta name="twitter:image" content="https://cedodev.me/social-banner.png?v=1">
+    <meta name="twitter:image:alt" content="CedoDev Portfólio de Kauan Macedo">
+    <meta name="twitter:site" content="@ogkauann">
     <meta name="twitter:creator" content="@ogkauann">
     
     <!-- Performance -->
@@ -135,7 +140,8 @@
                     </div>
                     <div class="actions">
                         <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                        <a href="#contact" class="btn btn-ghost">Vamos Conversar</a>
+                        <!-- Botão agora direciona direto para WhatsApp -->
+                        <a href="https://wa.me/5585997032624?text=Ol%C3%A1%20Kauan!%20Vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." class="btn btn-ghost" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">Vamos Conversar</a>
                         <a href="https://github.com/ogkauann" target="_blank" rel="noopener" class="github-link">Veja meu GitHub</a>
                     </div>
                 </div>
@@ -458,6 +464,48 @@
     </script>
 
     <script src="script.js"></script>
+
+        <!-- Botão Flutuante WhatsApp -->
+            <style>
+                .whatsapp-fab {
+                    position: fixed !important;
+                    bottom: 24px !important;
+                    right: 24px !important;
+                    width: 64px !important;
+                    height: 64px !important;
+                    border-radius: 50% !important;
+                    background: var(--brand, #3b82f6) !important;
+                    color: #fff !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    text-decoration: none !important;
+                    box-shadow: var(--shadow-glow, 0 0 20px rgba(59,130,246,0.3)) !important;
+                    font-size: 34px !important;
+                    z-index: 99999 !important;
+                    transition: background .3s, box-shadow .3s, transform .2s;
+                }
+                .whatsapp-fab:hover {
+                    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%) !important;
+                    box-shadow: 0 0 32px 0 rgba(59,130,246,0.45), 0 8px 32px -8px #3b82f6;
+                    transform: translateY(-3px) scale(1.04);
+                }
+                .whatsapp-fab i {
+                    color: #fff !important;
+                    font-size: 34px !important;
+                }
+                @media (max-width: 640px) {
+                    .whatsapp-fab { width: 56px !important; height: 56px !important; font-size: 30px !important; bottom: 18px !important; right: 18px !important; }
+                    .whatsapp-fab i { font-size: 30px !important; }
+                }
+            </style>
+        <a href="https://wa.me/55859997032624?text=Ol%C3%A1%20Kauan!%20Vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
+             class="whatsapp-fab"
+             target="_blank"
+             rel="noopener"
+             aria-label="Abrir conversa no WhatsApp">
+                <i class='bx bxl-whatsapp'></i>
+        </a>
 </body>
 </html>
 

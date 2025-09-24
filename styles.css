@@ -1996,6 +1996,37 @@ html {
   color: var(--text-secondary) !important;
 }
 
+/* === CORREÇÃO FINAL TEMA CLARO - CAIXAS BRANCAS === */
+[data-theme="light"] .profile,
+[data-theme="light"] .status-card,
+[data-theme="light"] .card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .skills li,
+[data-theme="light"] .social-bar ul,
+[data-theme="light"] .timeline-item .card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(59, 130, 246, 0.15) !important;
+  box-shadow: 0 4px 20px -8px rgba(59, 130, 246, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Garante texto legível nas caixas brancas */
+[data-theme="light"] .profile *,
+[data-theme="light"] .status-card *,
+[data-theme="light"] .card *,
+[data-theme="light"] .project-card *,
+[data-theme="light"] .skills li *,
+[data-theme="light"] .timeline-item * {
+  color: inherit !important;
+}
+
+[data-theme="light"] .profile h3,
+[data-theme="light"] .status-card h3,
+[data-theme="light"] .card h3,
+[data-theme="light"] .project-card h3 {
+  color: var(--text) !important;
+}
+
 /* === Botão Flutuante WhatsApp === */
 .whatsapp-fab {
   position: fixed;
